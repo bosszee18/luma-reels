@@ -1,0 +1,198 @@
+{
+  "project_name": "Luma Atelier",
+  "archetype": "LUXURY & CINEMATIC PRO STUDIO",
+  "theme": {
+    "mode": "dark",
+    "background_base": "#0B080F",
+    "background_surface": "#140F1D",
+    "background_card": "#1A1426",
+    "background_elevated": "#231B32",
+    "accent_champagne": "#F3D9A2",
+    "accent_champagne_light": "#F9EDCE",
+    "accent_champagne_dim": "#C8A96E",
+    "accent_copper": "#D97745",
+    "accent_violet": "#A855F7",
+    "accent_jade": "#10B981",
+    "text_primary": "#FAF7F2",
+    "text_secondary": "#B5A9C4",
+    "text_muted": "#7B6F8E",
+    "border_subtle": "rgba(243, 217, 162, 0.12)",
+    "border_active": "rgba(243, 217, 162, 0.35)",
+    "glow_champagne": "0 0 24px rgba(243, 217, 162, 0.15)",
+    "glow_copper": "0 0 24px rgba(217, 119, 69, 0.2)",
+    "glow_violet": "0 0 24px rgba(168, 85, 247, 0.2)",
+    "glow_jade": "0 0 24px rgba(16, 185, 129, 0.2)"
+  },
+  "typography": {
+    "headings": {
+      "family": "'Playfair Display', 'Cormorant Garamond', serif",
+      "h1": "text-4xl sm:text-5xl lg:text-6xl font-serif tracking-tight text-[#FAF7F2]",
+      "h2": "text-2xl sm:text-3xl lg:text-4xl font-serif tracking-tight text-[#FAF7F2]",
+      "h3": "text-xl sm:text-2xl font-serif text-[#FAF7F2]",
+      "h4": "text-lg sm:text-xl font-medium tracking-normal text-[#FAF7F2]"
+    },
+    "body": {
+      "family": "Inter, system-ui, -apple-system, sans-serif",
+      "lead": "text-lg text-[#B5A9C4] leading-relaxed",
+      "normal": "text-sm sm:text-base text-[#B5A9C4] leading-relaxed",
+      "subtle": "text-xs sm:text-sm text-[#7B6F8E]",
+      "tag": "text-[11px] uppercase tracking-[0.2em] font-semibold text-[#F3D9A2]"
+    }
+  },
+  "mode_cards_identity": {
+    "AutoClip": {
+      "title": "AutoClip",
+      "badge": "Shorts & Reels Cutter",
+      "color_name": "Tembaga (Copper)",
+      "color_hex": "#D97745",
+      "border": "border-[#D97745]/30 hover:border-[#D97745]/70",
+      "glow": "hover:shadow-[0_8px_32px_rgba(217,119,69,0.22)]",
+      "badge_bg": "bg-[#D97745]/15 text-[#F59E0B] border-[#D97745]/40",
+      "gradient_pill": "from-[#D97745]/20 to-transparent",
+      "description": "Ekstrak master video panjang & tautan YouTube jadi 5 klip viral bersubtitle dengan formula Hook, Konteks, Payoff, dan CTA."
+    },
+    "AutoMotion": {
+      "title": "AutoMotion",
+      "badge": "Kinetic & B-Roll Master",
+      "color_name": "Violet",
+      "color_hex": "#A855F7",
+      "border": "border-[#A855F7]/30 hover:border-[#A855F7]/70",
+      "glow": "hover:shadow-[0_8px_32px_rgba(168,85,247,0.22)]",
+      "badge_bg": "bg-[#A855F7]/15 text-[#C084FC] border-[#A855F7]/40",
+      "gradient_pill": "from-[#A855F7]/20 to-transparent",
+      "description": "Transformasi footage mentah menjadi video sinematik dengan subtitle dinamis, tipografi ekspresif, overlay motion graphics, dan transisi b-roll pintar."
+    },
+    "Explainer": {
+      "title": "Explainer",
+      "badge": "Idea to Storyboard Engine",
+      "color_name": "Jade (Zamrud)",
+      "color_hex": "#10B981",
+      "border": "border-[#10B981]/30 hover:border-[#10B981]/70",
+      "glow": "hover:shadow-[0_8px_32px_rgba(16,185,129,0.22)]",
+      "badge_bg": "bg-[#10B981]/15 text-[#34D399] border-[#10B981]/40",
+      "gradient_pill": "from-[#10B981]/20 to-transparent",
+      "description": "Eksplorasi Ide Hari Ini (Tren Indonesia & Global berwaktu WIB) atau tulis topik sendiri dalam gaya Clay, 2D, 3D, atau Sinematik realistis lengkap dengan narasi dan voice-over."
+    }
+  },
+  "three_d_objects_strategy": {
+    "engine": "CSS-Only (No Three.js/WebGL)",
+    "description": "High-performance CSS 3D prism & floating film slate created with perspective, transform-style preserve-3d, gentle keyframe hover rotate, and reduced-motion fallback.",
+    "css_classes": {
+      "viewport": "perspective-[1000px] flex items-center justify-center pointer-events-none",
+      "cube_container": "relative w-20 h-20 transform-style-3d animate-floating-slow motion-reduce:animate-none",
+      "face": "absolute inset-0 rounded-xl border border-[#F3D9A2]/30 bg-gradient-to-br from-[#2A1D3D]/90 to-[#140F1D]/90 backdrop-blur-md shadow-inner"
+    }
+  },
+  "layout_and_navigation": {
+    "header": {
+      "style": "sticky top-0 z-50 backdrop-blur-2xl bg-[#0B080F]/85 border-b border-[#F3D9A2]/15 px-6 py-4 flex items-center justify-between",
+      "logo": "Luma Atelier with subtle serif crest & glowing champagne badge",
+      "quick_nav": ["Studio", "Proyek", "Antrean Review", "Brand Kit", "Publikasi"]
+    },
+    "dashboard_grid": {
+      "container": "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-10",
+      "hero_modes": "grid grid-cols-1 md:grid-cols-3 gap-6",
+      "workflow_split": "grid grid-cols-1 lg:grid-cols-12 gap-8 items-start",
+      "active_jobs_span": "lg:col-span-7 space-y-6",
+      "review_queue_span": "lg:col-span-5 space-y-6"
+    }
+  },
+  "core_screens": [
+    {
+      "id": "screen_studio_dashboard",
+      "name": "Studio Utama",
+      "role": "Dashboard kreatif utama dengan 3 Mode Card (AutoClip, AutoMotion, Explainer), monitor progres pekerjaan aktif dengan indikator timeline tahap nyata, antrean review kilat, serta galeri video terkini."
+    },
+    {
+      "id": "screen_wizard_autoclip",
+      "name": "Wizard AutoClip",
+      "role": "Input URL YouTube atau drag-and-drop master video, target durasi (30s/60s), opsi ratio 9:16/1:1, dan deteksi otomatis 5 klip terbaik (Hook -> Konteks -> Payoff -> CTA)."
+    },
+    {
+      "id": "screen_wizard_automotion",
+      "name": "Wizard AutoMotion",
+      "role": "Upload b-roll/footage rekaman, pilihan preset kinetic typography, animasi sticker/motion overlays, dan style grading sinematik."
+    },
+    {
+      "id": "screen_wizard_explainer",
+      "name": "Wizard Explainer",
+      "role": "Dua tab mode: 'Ide Hari Ini' (5 tren terkini Indonesia & Global dengan sumber berita, waktu WIB, metrik viral, AI default pick) dan 'Topik Sendiri' (input satu kalimat prompt + pilihan style: Claymation, Flat 2D, 3D Render, Sinematik Realistis)."
+    },
+    {
+      "id": "screen_review_suite",
+      "name": "Layar Review & Editor Editorial",
+      "role": "Pemutar video interaktif dengan timestamp scrub, klip terurut berdasarkan editorial score (0-100) lengkap dengan alasan dan rekomendasi AI, tombol revisi bagian segmen, tombol setujui versi final, tab metadata per platform (TikTok, IG Reels, FB Reels, YT Shorts), dan tombol ekspor MP4, SRT, serta JSON metadata."
+    },
+    {
+      "id": "screen_publication_hub",
+      "name": "Pusat Publikasi Multi-Kanal",
+      "role": "Status koneksi OAuth (TikTok, Instagram Reels, Facebook Reels, YouTube Shorts) dengan petunjuk 'Kebutuhan Konfigurasi' jika belum terhubung, kalender jadwal tayang terpadu, dan log status distribusi."
+    },
+    {
+      "id": "screen_brand_kit",
+      "name": "Brand Kit Kreator",
+      "role": "Penyimpanan palet warna identitas (Hex, gradients), tipografi primer/sekunder, watermark/logo overlay, dan preset intro/outro audio per kreator."
+    },
+    {
+      "id": "screen_projects_library",
+      "name": "Pustaka Proyek & Aset",
+      "role": "Daftar lengkap proyek tersimpan, riwayat versi (v1.0, v1.1, final approved), filter mode, dan manajemen download paket arsip."
+    }
+  ],
+  "image_urls": {
+    "hero_studio_bg": {
+      "url": "https://images.unsplash.com/photo-1781127445077-c948a9dd0ca4?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2MDV8MHwxfHNlYXJjaHwzfHxjaW5lbWF0aWMlMjB2aWRlbyUyMHByb2R1Y3Rpb24lMjBzdHVkaW98ZW58MHx8fHwxNzk1NDA2MzU0fDA&ixlib=rb-4.1.0&q=85",
+      "description": "Kamera bioskop Arri profesional dengan tata lampu studio lembut, aksen pencahayaan sinematik untuk atmosfer workstation kreator.",
+      "category": "Hero / Dashboard Background Banner"
+    },
+    "creator_podcast_sample": {
+      "url": "https://images.unsplash.com/photo-1581368135153-a506cf13b1e1?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMzl8MHwxfHNlYXJjaHwxfHxjcmVhdG9yJTIwcmVjb3JkaW5nJTIwdmlkZW8lMjBwb2RjYXN0JTIwc3R1ZGlvfGVufDB8fHx8MTc5NTQwNjM1OHww&ixlib=rb-4.1.0&q=85",
+      "description": "Kreator konten pria dengan mikrofon profesional sedang merekam siniar video di studio modern.",
+      "category": "Sample AutoClip Master Footage"
+    },
+    "creator_female_sample": {
+      "url": "https://images.unsplash.com/photo-1673767298248-b128f17f89af?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMzl8MHwxfHNlYXJjaHwzfHxjcmVhdG9yJTIwcmVjb3JkaW5nJTIwdmlkZW8lMjBwb2RjYXN0JTIwc3R1ZGlvfGVufDB8fHx8MTc5NTQwNjM1OHww&ixlib=rb-4.1.0&q=85",
+      "description": "Kreator wanita berbicara di depan laptop diiringi pencahayaan neon studio violet.",
+      "category": "Sample AutoMotion Footage"
+    },
+    "abstract_3d_explainer": {
+      "url": "https://images.unsplash.com/photo-1622737133809-d95047b9e673?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2ODl8MHwxfHNlYXJjaHwxfHxjcmVhdGl2ZSUyMGRpZ2l0YWwlMjBhcnQlMjAzZCUyMHJlbmRlciUyMGFlc3RoZXRpY3xlbnwwfHx8fDE3OTU0MDYzNjF8MA&ixlib=rb-4.1.0&q=85",
+      "description": "Render 3D artistik dengan kubus terapung dan pendaran emas hangat untuk kartu Explainer visualisasi abstrak.",
+      "category": "Explainer Style Preset 3D"
+    }
+  },
+  "interactive_elements_and_data_testids": {
+    "nav_studio": "nav-item-studio",
+    "nav_projects": "nav-item-projects",
+    "nav_review": "nav-item-review",
+    "nav_brandkit": "nav-item-brandkit",
+    "nav_publish": "nav-item-publish",
+    "mode_autoclip_btn": "mode-card-autoclip-button",
+    "mode_automotion_btn": "mode-card-automotion-button",
+    "mode_explainer_btn": "mode-card-explainer-button",
+    "wizard_youtube_input": "wizard-autoclip-youtube-url-input",
+    "wizard_upload_zone": "wizard-file-dropzone",
+    "wizard_submit_btn": "wizard-submit-generation-button",
+    "explainer_tab_trends": "explainer-tab-today-trends",
+    "explainer_tab_custom": "explainer-tab-custom-topic",
+    "review_video_player": "review-video-player-container",
+    "review_clip_selector": "review-clip-card-item",
+    "review_editorial_score": "review-editorial-score-badge",
+    "review_approve_btn": "review-approve-final-version-button",
+    "review_revise_btn": "review-revise-segment-button",
+    "export_mp4_btn": "export-download-mp4-button",
+    "export_srt_btn": "export-download-srt-button",
+    "export_json_btn": "export-download-json-button",
+    "publish_schedule_btn": "publish-schedule-post-button",
+    "channel_connect_btn": "channel-oauth-connect-button"
+  },
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": {
+    "theme_coherence": "Selalu gunakan latar hitam plum (#0B080F / #140F1D) dengan aksen champagne (#F3D9A2) sebagai benang merah visual studio sinematik.",
+    "anti_slop_rule": "Jangan pernah gunakan font Inter untuk judul utama. Gunakan font serif elegan (Playfair Display / Cormorant) untuk seluruh judul dan angka metrik penting.",
+    "color_coding": "AutoClip = Tembaga (#D97745), AutoMotion = Violet (#A855F7), Explainer = Jade (#10B981). Jaga konsistensi identitas warna ini di tombol, tag, dan progres garis.",
+    "contrast_rule": "Tidak ada elemen dropdown atau overlay dengan latar belakang transparan murni. Gunakan solid tint dengan backdrop blur minimum 16px.",
+    "css_3d": "Animasi 3D murni CSS tanpa three.js: gunakan perspektif 3D, translateZ, rotasi lembut, dan dukung @media (prefers-reduced-motion) dengan animasi statis elegan.",
+    "indonesian_copywriting": "Gunakan istilah studio profesional berbahasa Indonesia: 'Antrean Review', 'Skor Editorial', 'Progres Tahap Nyata', 'Formulasi Hook-Payoff', 'Ide Hari Ini', 'Kebutuhan Konfigurasi Kanal'.",
+    "testing_readiness": "Sertakan atribut data-testid pada seluruh tombol aksi, tab navigasi, input modal, kartu review, dan tombol ekspor."
+  }
+}
