@@ -154,7 +154,8 @@ async def upload(file: UploadFile = File(...), rights_confirmed: bool = Form(Fal
     data = await file.read()
     if len(data) > MAX_UPLOAD:
         raise HTTPException(413, "Ukuran file maksimal 500 MB.")
-    a = await save_asset(uid_of(user), None, "master", data, ext, file.content_type or "video/mp4",
+    ctype = {"mp4": "video/mp4", "m4v": "video/mp4", "mov": "video/quicktime", "webm": "video/webm", "mkv": "video/x-matroska"}[ext]
+    a = await save_asset(uid_of(user), None, "master", data, ext, ctype,
                          filename=file.filename, meta={"rights_confirmed": True})
     return public_asset(a)
 
@@ -185,7 +186,7 @@ async def media_get(aid: str, request: Request, exp: int = Query(...), sig: str 
         raise HTTPException(404, "Media tidak ditemukan")
     path = await local_path(a)
     size = path.stat().st_size
-    headers = {"Accept-Ranges": "bytes", "Cache-Control": "private, max-age=3600"}
+    headers = {"Accept-Ranges": "bytes", "Cache-Control": "private, max-age=3600", "X-Content-Type-Options": "nosniff"}
     if download:
         headers["Content-Disposition"] = f'attachment; filename="{a["filename"]}"'
     rng = request.headers.get("range")
@@ -476,8 +477,10 @@ async def publication_create(body: PublishIn, request: Request, user: dict = Dep
     v = await own_video(body.video_id, uid)
     if not body.confirm:
         raise HTTPException(400, "Konfirmasi versi, akun, visibilitas, dan waktu tayang terlebih dahulu.")
-    if v.get("approved_version") != body.version:
+    if v.get("approved_version") != body.version or v.get("status") == "revising":
         raise HTTPException(400, "Hanya versi yang sudah disetujui yang dapat dipublikasikan.")
+    if body.platform == "instagram" and body.visibility != "public":
+        raise HTTPException(400, "Instagram Reels via API selalu publik; pilih Publik atau gunakan ekspor manual.")
     ch = next(c for c in await publish.channel_list(uid) if c["platform"] == body.platform)
     if not ch["configured"] or not ch["connected"]:
         raise HTTPException(412, "Akun kanal belum terhubung via OAuth. Gunakan ekspor manual sementara.")

@@ -602,6 +602,8 @@ async def run_revision(video_id: str):
                     sc["asset_id"] = old.get("asset_id")
                 if old and sc["narration"] == old.get("narration") and not voice_changed:
                     sc["audio_asset_id"] = old.get("audio_asset_id")
+                    if old.get("dur"):
+                        sc["dur"] = old["dur"]
                 merged.append(sc)
             plan["scenes"] = merged
         if voice_changed:
@@ -609,7 +611,7 @@ async def run_revision(video_id: str):
                 sc.pop("audio_asset_id", None)
         ref = (await local_path(await get_asset(plan["scenes"][0]["asset_id"]))).read_bytes() if plan["scenes"][0].get("asset_id") else None
         await gen_images(fake_job, plan["scenes"], scene_prompt(plan), "visuals", ref)
-        if any(not sc.get("audio_asset_id") for sc in plan["scenes"]) or not plan.get("voice_asset_id"):
+        if any(not sc.get("audio_asset_id") or not sc.get("dur") for sc in plan["scenes"]) or not plan.get("voice_asset_id"):
             await build_voice(v["user_id"], v["project_id"], plan, plan["voice"])
     else:
         await gen_images(fake_job, plan["broll"], broll_prompt(brand), "visuals")

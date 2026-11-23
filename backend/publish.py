@@ -167,7 +167,7 @@ def _facebook(tokens, url, meta, visibility):
     requests.post(f"https://rupload.facebook.com/video-upload/v21.0/{s['video_id']}",
                   headers={"Authorization": f"OAuth {tok}", "file_url": url}, timeout=120).raise_for_status()
     f = requests.post(f"https://graph.facebook.com/v21.0/{pid}/video_reels", data={
-        "upload_phase": "finish", "video_id": s["video_id"], "video_state": "PUBLISHED",
+        "upload_phase": "finish", "video_id": s["video_id"], "video_state": "PUBLISHED" if visibility == "public" else "DRAFT",
         "description": f"{meta.get('caption', '')} {' '.join(meta.get('hashtags', []))}", "access_token": tok}, timeout=30).json()
     if not f.get("success"):
         raise RuntimeError(str(f)[:300])
@@ -190,6 +190,8 @@ async def execute(pub: dict, base: str):
     if not ch or not ch.get("connected"):
         raise RuntimeError("Akun kanal belum terhubung")
     v = await db.videos.find_one({"id": pub["video_id"]}, {"_id": 0})
+    if v.get("approved_version") != pub["version"] or v.get("status") == "revising":
+        raise RuntimeError("Versi tidak lagi berstatus disetujui; publikasi dihentikan")
     ver = next(x for x in v["versions"] if x["n"] == pub["version"])
     asset = await get_asset(ver["video_asset_id"])
     meta = (v.get("metadata") or {}).get(pub["platform"], {})
